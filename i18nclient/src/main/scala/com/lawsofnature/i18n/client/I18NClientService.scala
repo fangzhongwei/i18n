@@ -2,7 +2,7 @@ package com.lawsofnature.i18n.client
 
 import javax.inject.{Inject, Named}
 
-import RpcI18N.{CheckResourceVersionRequest, I18NEndpointPrx, I18NEndpointPrxHelper}
+import RpcI18N._
 import com.lawsofnatrue.common.ice.IcePrxFactory
 import org.slf4j.LoggerFactory
 
@@ -12,9 +12,9 @@ import org.slf4j.LoggerFactory
 trait I18NClientService {
   def initClient
 
-  def getLatest(traceId: String, lan: String)
+  def getLatest(traceId: String, lan: String): ResourceResponse
 
-  def check(traceId: String, request: CheckResourceVersionRequest)
+  def pullLatest(traceId: String, request: PullResourceRequest): ResourceResponse
 }
 
 class I18NClientServiceImpl @Inject()(@Named("i18n.ice.client.init.config") iceInitConfig: String,
@@ -29,7 +29,7 @@ class I18NClientServiceImpl @Inject()(@Named("i18n.ice.client.init.config") iceI
 
   override def initClient = i18nEndpoint = icePrxFactory.make[I18NEndpointPrx](Array[String](iceInitConfig, iceInitSizeConfig, iceInitSizeMaxConfig, iceInitSizeWarnConfig), proxyConfig, I18NEndpointPrxHelper.checkedCast)
 
-  override def getLatest(traceId: String, lan: String): Unit = i18nEndpoint.getLatest(traceId, lan)
+  override def getLatest(traceId: String, lan: String): ResourceResponse = i18nEndpoint.getLatest(traceId, lan)
 
-  override def check(traceId: String, request: CheckResourceVersionRequest): Unit = i18nEndpoint.check(traceId, request)
+  override def pullLatest(traceId: String, request: PullResourceRequest): ResourceResponse = i18nEndpoint.pullLatest(traceId, request)
 }
