@@ -27,6 +27,7 @@ lazy val i18nserver = (project in file("i18nserver")).settings(commonSettings: _
   name := """i18nserver""",
   libraryDependencies ++= Seq(
     "com.lawsofnature.common" % "common-ice_2.11" % "1.0",
-    "com.lawsofnature.i18n" % "i18ncommonlib_2.11" % "1.0"
+    "com.lawsofnature.i18n" % "i18ncommonlib_2.11" % "1.0",
+    "com.lawsofnature.common" % "common-mysql_2.11" % "1.0"
   )
 )
