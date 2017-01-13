@@ -20,14 +20,14 @@
 
 package RpcI18N;
 
-public class CheckResourceVersionRequest extends Ice.ObjectImpl
+public class PullResourceRequest extends Ice.ObjectImpl
 {
-    public CheckResourceVersionRequest()
+    public PullResourceRequest()
     {
         lan = "";
     }
 
-    public CheckResourceVersionRequest(int version, String lan)
+    public PullResourceRequest(int version, String lan)
     {
         this.version = version;
         this.lan = lan;
@@ -38,7 +38,7 @@ public class CheckResourceVersionRequest extends Ice.ObjectImpl
         public Ice.Object create(String type)
         {
             assert(type.equals(ice_staticId()));
-            return new CheckResourceVersionRequest();
+            return new PullResourceRequest();
         }
 
         public void destroy()
@@ -56,7 +56,7 @@ public class CheckResourceVersionRequest extends Ice.ObjectImpl
     public static final String[] __ids =
     {
         "::Ice::Object",
-        "::RpcI18N::CheckResourceVersionRequest"
+        "::RpcI18N::PullResourceRequest"
     };
 
     public boolean ice_isA(String s)
@@ -114,11 +114,11 @@ public class CheckResourceVersionRequest extends Ice.ObjectImpl
 
     public String lan;
 
-    public CheckResourceVersionRequest
+    public PullResourceRequest
     clone()
     {
-        return (CheckResourceVersionRequest)super.clone();
+        return (PullResourceRequest)super.clone();
     }
 
-    public static final long serialVersionUID = -8103332733750961472L;
+    public static final long serialVersionUID = 2758407293479956505L;
 }

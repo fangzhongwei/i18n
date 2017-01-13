@@ -20,18 +20,6 @@
 
 package RpcI18N;
 
-public final class CheckResourceVersionRequestPrxHolder
+public interface PullResourceRequestPrx extends Ice.ObjectPrx
 {
-    public
-    CheckResourceVersionRequestPrxHolder()
-    {
-    }
-
-    public
-    CheckResourceVersionRequestPrxHolder(CheckResourceVersionRequestPrx value)
-    {
-        this.value = value;
-    }
-
-    public CheckResourceVersionRequestPrx value;
 }

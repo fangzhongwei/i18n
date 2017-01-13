@@ -20,6 +20,11 @@
 
 package RpcI18N;
 
-public interface CheckResourceVersionRequestPrx extends Ice.ObjectPrx
+public abstract class Callback_I18NEndpoint_pullLatest
+    extends IceInternal.TwowayCallback implements Ice.TwowayCallbackArg1<ResourceResponse>
 {
+    public final void __completed(Ice.AsyncResult __result)
+    {
+        I18NEndpointPrxHelper.__pullLatest_completed(this, __result);
+    }
 }

@@ -70,14 +70,14 @@ public abstract class _I18NEndpointDisp extends Ice.ObjectImpl implements I18NEn
         return __ids[1];
     }
 
-    public final ResourceResponse check(String traceId, CheckResourceVersionRequest request)
-    {
-        return check(traceId, request, null);
-    }
-
     public final ResourceResponse getLatest(String traceId, String lan)
     {
         return getLatest(traceId, lan, null);
+    }
+
+    public final ResourceResponse pullLatest(String traceId, PullResourceRequest request)
+    {
+        return pullLatest(traceId, request, null);
     }
 
     public static Ice.DispatchStatus ___getLatest(I18NEndpoint __obj, IceInternal.Incoming __inS, Ice.Current __current)
@@ -97,17 +97,17 @@ public abstract class _I18NEndpointDisp extends Ice.ObjectImpl implements I18NEn
         return Ice.DispatchStatus.DispatchOK;
     }
 
-    public static Ice.DispatchStatus ___check(I18NEndpoint __obj, IceInternal.Incoming __inS, Ice.Current __current)
+    public static Ice.DispatchStatus ___pullLatest(I18NEndpoint __obj, IceInternal.Incoming __inS, Ice.Current __current)
     {
         __checkMode(Ice.OperationMode.Normal, __current.mode);
         IceInternal.BasicStream __is = __inS.startReadParams();
         String traceId;
-        CheckResourceVersionRequestHolder request = new CheckResourceVersionRequestHolder();
+        PullResourceRequestHolder request = new PullResourceRequestHolder();
         traceId = __is.readString();
         __is.readObject(request);
         __is.readPendingObjects();
         __inS.endReadParams();
-        ResourceResponse __ret = __obj.check(traceId, request.value, __current);
+        ResourceResponse __ret = __obj.pullLatest(traceId, request.value, __current);
         IceInternal.BasicStream __os = __inS.__startWriteParams(Ice.FormatType.DefaultFormat);
         __os.writeObject(__ret);
         __os.writePendingObjects();
@@ -117,12 +117,12 @@ public abstract class _I18NEndpointDisp extends Ice.ObjectImpl implements I18NEn
 
     private final static String[] __all =
     {
-        "check",
         "getLatest",
         "ice_id",
         "ice_ids",
         "ice_isA",
-        "ice_ping"
+        "ice_ping",
+        "pullLatest"
     };
 
     public Ice.DispatchStatus __dispatch(IceInternal.Incoming in, Ice.Current __current)
@@ -137,27 +137,27 @@ public abstract class _I18NEndpointDisp extends Ice.ObjectImpl implements I18NEn
         {
             case 0:
             {
-                return ___check(this, in, __current);
+                return ___getLatest(this, in, __current);
             }
             case 1:
             {
-                return ___getLatest(this, in, __current);
+                return ___ice_id(this, in, __current);
             }
             case 2:
             {
-                return ___ice_id(this, in, __current);
+                return ___ice_ids(this, in, __current);
             }
             case 3:
             {
-                return ___ice_ids(this, in, __current);
+                return ___ice_isA(this, in, __current);
             }
             case 4:
             {
-                return ___ice_isA(this, in, __current);
+                return ___ice_ping(this, in, __current);
             }
             case 5:
             {
-                return ___ice_ping(this, in, __current);
+                return ___pullLatest(this, in, __current);
             }
         }
 

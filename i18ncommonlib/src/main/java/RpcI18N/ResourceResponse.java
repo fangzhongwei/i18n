@@ -27,10 +27,9 @@ public class ResourceResponse extends I18NBaseResponse
         super();
     }
 
-    public ResourceResponse(String code, boolean isLatest, int latestVersion, Resource[] resourceList)
+    public ResourceResponse(String code, int latestVersion, Resource[] resourceList)
     {
         super(code);
-        this.isLatest = isLatest;
         this.latestVersion = latestVersion;
         this.resourceList = resourceList;
     }
@@ -100,7 +99,6 @@ public class ResourceResponse extends I18NBaseResponse
     protected void __writeImpl(IceInternal.BasicStream __os)
     {
         __os.startWriteSlice(ice_staticId(), -1, false);
-        __os.writeBool(isLatest);
         __os.writeInt(latestVersion);
         ResourceSeqHelper.write(__os, resourceList);
         __os.endWriteSlice();
@@ -110,14 +108,11 @@ public class ResourceResponse extends I18NBaseResponse
     protected void __readImpl(IceInternal.BasicStream __is)
     {
         __is.startReadSlice();
-        isLatest = __is.readBool();
         latestVersion = __is.readInt();
         resourceList = ResourceSeqHelper.read(__is);
         __is.endReadSlice();
         super.__readImpl(__is);
     }
-
-    public boolean isLatest;
 
     public int latestVersion;
 
@@ -129,5 +124,5 @@ public class ResourceResponse extends I18NBaseResponse
         return (ResourceResponse)super.clone();
     }
 
-    public static final long serialVersionUID = 7479305084181882031L;
+    public static final long serialVersionUID = -4825152921175173175L;
 }

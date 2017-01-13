@@ -24,5 +24,5 @@ public interface _I18NEndpointOperations
 {
     ResourceResponse getLatest(String traceId, String lan, Ice.Current __current);
 
-    ResourceResponse check(String traceId, CheckResourceVersionRequest request, Ice.Current __current);
+    ResourceResponse pullLatest(String traceId, PullResourceRequest request, Ice.Current __current);
 }

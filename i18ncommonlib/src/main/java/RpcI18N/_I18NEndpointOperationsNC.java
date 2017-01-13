@@ -24,5 +24,5 @@ public interface _I18NEndpointOperationsNC
 {
     ResourceResponse getLatest(String traceId, String lan);
 
-    ResourceResponse check(String traceId, CheckResourceVersionRequest request);
+    ResourceResponse pullLatest(String traceId, PullResourceRequest request);
 }

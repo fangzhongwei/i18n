@@ -64,45 +64,45 @@ public interface I18NEndpointPrx extends Ice.ObjectPrx
 
     public ResourceResponse end_getLatest(Ice.AsyncResult __result);
 
-    public ResourceResponse check(String traceId, CheckResourceVersionRequest request);
+    public ResourceResponse pullLatest(String traceId, PullResourceRequest request);
 
-    public ResourceResponse check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx);
+    public ResourceResponse pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx);
 
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request);
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request);
 
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx);
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx);
 
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, Ice.Callback __cb);
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, Ice.Callback __cb);
 
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx, Ice.Callback __cb);
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx, Ice.Callback __cb);
 
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, Callback_I18NEndpoint_check __cb);
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, Callback_I18NEndpoint_pullLatest __cb);
 
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx, Callback_I18NEndpoint_check __cb);
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx, Callback_I18NEndpoint_pullLatest __cb);
 
-    public Ice.AsyncResult begin_check(String traceId,
-                                       CheckResourceVersionRequest request,
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb);
+    public Ice.AsyncResult begin_pullLatest(String traceId,
+                                            PullResourceRequest request,
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb);
 
-    public Ice.AsyncResult begin_check(String traceId,
-                                       CheckResourceVersionRequest request,
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb,
-                                       IceInternal.Functional_BoolCallback __sentCb);
+    public Ice.AsyncResult begin_pullLatest(String traceId,
+                                            PullResourceRequest request,
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb,
+                                            IceInternal.Functional_BoolCallback __sentCb);
 
-    public Ice.AsyncResult begin_check(String traceId,
-                                       CheckResourceVersionRequest request,
-                                       java.util.Map<String, String> __ctx,
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb);
+    public Ice.AsyncResult begin_pullLatest(String traceId,
+                                            PullResourceRequest request,
+                                            java.util.Map<String, String> __ctx,
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb);
 
-    public Ice.AsyncResult begin_check(String traceId,
-                                       CheckResourceVersionRequest request,
-                                       java.util.Map<String, String> __ctx,
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb,
-                                       IceInternal.Functional_BoolCallback __sentCb);
+    public Ice.AsyncResult begin_pullLatest(String traceId,
+                                            PullResourceRequest request,
+                                            java.util.Map<String, String> __ctx,
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb,
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb,
+                                            IceInternal.Functional_BoolCallback __sentCb);
 
-    public ResourceResponse end_check(Ice.AsyncResult __result);
+    public ResourceResponse end_pullLatest(Ice.AsyncResult __result);
 }

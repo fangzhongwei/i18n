@@ -20,11 +20,18 @@
 
 package RpcI18N;
 
-public abstract class Callback_I18NEndpoint_check
-    extends IceInternal.TwowayCallback implements Ice.TwowayCallbackArg1<ResourceResponse>
+public final class PullResourceRequestPrxHolder
 {
-    public final void __completed(Ice.AsyncResult __result)
+    public
+    PullResourceRequestPrxHolder()
     {
-        I18NEndpointPrxHelper.__check_completed(this, __result);
     }
+
+    public
+    PullResourceRequestPrxHolder(PullResourceRequestPrx value)
+    {
+        this.value = value;
+    }
+
+    public PullResourceRequestPrx value;
 }

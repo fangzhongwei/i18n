@@ -25,188 +25,6 @@ package RpcI18N;
  **/
 public final class I18NEndpointPrxHelper extends Ice.ObjectPrxHelperBase implements I18NEndpointPrx
 {
-    private static final String __check_name = "check";
-
-    public ResourceResponse check(String traceId, CheckResourceVersionRequest request)
-    {
-        return check(traceId, request, null, false);
-    }
-
-    public ResourceResponse check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx)
-    {
-        return check(traceId, request, __ctx, true);
-    }
-
-    private ResourceResponse check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx, boolean __explicitCtx)
-    {
-        __checkTwowayOnly(__check_name);
-        return end_check(begin_check(traceId, request, __ctx, __explicitCtx, true, null));
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request)
-    {
-        return begin_check(traceId, request, null, false, false, null);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx)
-    {
-        return begin_check(traceId, request, __ctx, true, false, null);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, Ice.Callback __cb)
-    {
-        return begin_check(traceId, request, null, false, false, __cb);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx, Ice.Callback __cb)
-    {
-        return begin_check(traceId, request, __ctx, true, false, __cb);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, Callback_I18NEndpoint_check __cb)
-    {
-        return begin_check(traceId, request, null, false, false, __cb);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, CheckResourceVersionRequest request, java.util.Map<String, String> __ctx, Callback_I18NEndpoint_check __cb)
-    {
-        return begin_check(traceId, request, __ctx, true, false, __cb);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, 
-                                       CheckResourceVersionRequest request, 
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb)
-    {
-        return begin_check(traceId, request, null, false, false, __responseCb, __exceptionCb, null);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, 
-                                       CheckResourceVersionRequest request, 
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb, 
-                                       IceInternal.Functional_BoolCallback __sentCb)
-    {
-        return begin_check(traceId, request, null, false, false, __responseCb, __exceptionCb, __sentCb);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, 
-                                       CheckResourceVersionRequest request, 
-                                       java.util.Map<String, String> __ctx, 
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb)
-    {
-        return begin_check(traceId, request, __ctx, true, false, __responseCb, __exceptionCb, null);
-    }
-
-    public Ice.AsyncResult begin_check(String traceId, 
-                                       CheckResourceVersionRequest request, 
-                                       java.util.Map<String, String> __ctx, 
-                                       IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
-                                       IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb, 
-                                       IceInternal.Functional_BoolCallback __sentCb)
-    {
-        return begin_check(traceId, request, __ctx, true, false, __responseCb, __exceptionCb, __sentCb);
-    }
-
-    private Ice.AsyncResult begin_check(String traceId, 
-                                        CheckResourceVersionRequest request, 
-                                        java.util.Map<String, String> __ctx, 
-                                        boolean __explicitCtx, 
-                                        boolean __synchronous, 
-                                        IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
-                                        IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb, 
-                                        IceInternal.Functional_BoolCallback __sentCb)
-    {
-        return begin_check(traceId, request, __ctx, __explicitCtx, __synchronous, 
-                           new IceInternal.Functional_TwowayCallbackArg1<RpcI18N.ResourceResponse>(__responseCb, __exceptionCb, __sentCb)
-                               {
-                                   public final void __completed(Ice.AsyncResult __result)
-                                   {
-                                       I18NEndpointPrxHelper.__check_completed(this, __result);
-                                   }
-                               });
-    }
-
-    private Ice.AsyncResult begin_check(String traceId, 
-                                        CheckResourceVersionRequest request, 
-                                        java.util.Map<String, String> __ctx, 
-                                        boolean __explicitCtx, 
-                                        boolean __synchronous, 
-                                        IceInternal.CallbackBase __cb)
-    {
-        __checkAsyncTwowayOnly(__check_name);
-        IceInternal.OutgoingAsync __result = getOutgoingAsync(__check_name, __cb);
-        try
-        {
-            __result.prepare(__check_name, Ice.OperationMode.Normal, __ctx, __explicitCtx, __synchronous);
-            IceInternal.BasicStream __os = __result.startWriteParams(Ice.FormatType.DefaultFormat);
-            __os.writeString(traceId);
-            __os.writeObject(request);
-            __os.writePendingObjects();
-            __result.endWriteParams();
-            __result.invoke();
-        }
-        catch(Ice.Exception __ex)
-        {
-            __result.abort(__ex);
-        }
-        return __result;
-    }
-
-    public ResourceResponse end_check(Ice.AsyncResult __iresult)
-    {
-        IceInternal.OutgoingAsync __result = IceInternal.OutgoingAsync.check(__iresult, this, __check_name);
-        try
-        {
-            if(!__result.__wait())
-            {
-                try
-                {
-                    __result.throwUserException();
-                }
-                catch(Ice.UserException __ex)
-                {
-                    throw new Ice.UnknownUserException(__ex.ice_name(), __ex);
-                }
-            }
-            IceInternal.BasicStream __is = __result.startReadParams();
-            ResourceResponseHolder __ret = new ResourceResponseHolder();
-            __is.readObject(__ret);
-            __is.readPendingObjects();
-            __result.endReadParams();
-            return __ret.value;
-        }
-        finally
-        {
-            if(__result != null)
-            {
-                __result.cacheMessageBuffers();
-            }
-        }
-    }
-
-    static public void __check_completed(Ice.TwowayCallbackArg1<ResourceResponse> __cb, Ice.AsyncResult __result)
-    {
-        I18NEndpointPrx __proxy = (I18NEndpointPrx)__result.getProxy();
-        ResourceResponse __ret = null;
-        try
-        {
-            __ret = __proxy.end_check(__result);
-        }
-        catch(Ice.LocalException __ex)
-        {
-            __cb.exception(__ex);
-            return;
-        }
-        catch(Ice.SystemException __ex)
-        {
-            __cb.exception(__ex);
-            return;
-        }
-        __cb.response(__ret);
-    }
-
     private static final String __getLatest_name = "getLatest";
 
     public ResourceResponse getLatest(String traceId, String lan)
@@ -301,7 +119,7 @@ public final class I18NEndpointPrxHelper extends Ice.ObjectPrxHelperBase impleme
                                             IceInternal.Functional_BoolCallback __sentCb)
     {
         return begin_getLatest(traceId, lan, __ctx, __explicitCtx, __synchronous, 
-                               new IceInternal.Functional_TwowayCallbackArg1<RpcI18N.ResourceResponse>(__responseCb, __exceptionCb, __sentCb)
+                               new IceInternal.Functional_TwowayCallbackArg1<ResourceResponse>(__responseCb, __exceptionCb, __sentCb)
                                    {
                                        public final void __completed(Ice.AsyncResult __result)
                                        {
@@ -374,6 +192,188 @@ public final class I18NEndpointPrxHelper extends Ice.ObjectPrxHelperBase impleme
         try
         {
             __ret = __proxy.end_getLatest(__result);
+        }
+        catch(Ice.LocalException __ex)
+        {
+            __cb.exception(__ex);
+            return;
+        }
+        catch(Ice.SystemException __ex)
+        {
+            __cb.exception(__ex);
+            return;
+        }
+        __cb.response(__ret);
+    }
+
+    private static final String __pullLatest_name = "pullLatest";
+
+    public ResourceResponse pullLatest(String traceId, PullResourceRequest request)
+    {
+        return pullLatest(traceId, request, null, false);
+    }
+
+    public ResourceResponse pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx)
+    {
+        return pullLatest(traceId, request, __ctx, true);
+    }
+
+    private ResourceResponse pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx, boolean __explicitCtx)
+    {
+        __checkTwowayOnly(__pullLatest_name);
+        return end_pullLatest(begin_pullLatest(traceId, request, __ctx, __explicitCtx, true, null));
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request)
+    {
+        return begin_pullLatest(traceId, request, null, false, false, null);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx)
+    {
+        return begin_pullLatest(traceId, request, __ctx, true, false, null);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, Ice.Callback __cb)
+    {
+        return begin_pullLatest(traceId, request, null, false, false, __cb);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx, Ice.Callback __cb)
+    {
+        return begin_pullLatest(traceId, request, __ctx, true, false, __cb);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, Callback_I18NEndpoint_pullLatest __cb)
+    {
+        return begin_pullLatest(traceId, request, null, false, false, __cb);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, PullResourceRequest request, java.util.Map<String, String> __ctx, Callback_I18NEndpoint_pullLatest __cb)
+    {
+        return begin_pullLatest(traceId, request, __ctx, true, false, __cb);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, 
+                                            PullResourceRequest request, 
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb)
+    {
+        return begin_pullLatest(traceId, request, null, false, false, __responseCb, __exceptionCb, null);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, 
+                                            PullResourceRequest request, 
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb, 
+                                            IceInternal.Functional_BoolCallback __sentCb)
+    {
+        return begin_pullLatest(traceId, request, null, false, false, __responseCb, __exceptionCb, __sentCb);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, 
+                                            PullResourceRequest request, 
+                                            java.util.Map<String, String> __ctx, 
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb)
+    {
+        return begin_pullLatest(traceId, request, __ctx, true, false, __responseCb, __exceptionCb, null);
+    }
+
+    public Ice.AsyncResult begin_pullLatest(String traceId, 
+                                            PullResourceRequest request, 
+                                            java.util.Map<String, String> __ctx, 
+                                            IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
+                                            IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb, 
+                                            IceInternal.Functional_BoolCallback __sentCb)
+    {
+        return begin_pullLatest(traceId, request, __ctx, true, false, __responseCb, __exceptionCb, __sentCb);
+    }
+
+    private Ice.AsyncResult begin_pullLatest(String traceId, 
+                                             PullResourceRequest request, 
+                                             java.util.Map<String, String> __ctx, 
+                                             boolean __explicitCtx, 
+                                             boolean __synchronous, 
+                                             IceInternal.Functional_GenericCallback1<ResourceResponse> __responseCb, 
+                                             IceInternal.Functional_GenericCallback1<Ice.Exception> __exceptionCb, 
+                                             IceInternal.Functional_BoolCallback __sentCb)
+    {
+        return begin_pullLatest(traceId, request, __ctx, __explicitCtx, __synchronous, 
+                                new IceInternal.Functional_TwowayCallbackArg1<ResourceResponse>(__responseCb, __exceptionCb, __sentCb)
+                                    {
+                                        public final void __completed(Ice.AsyncResult __result)
+                                        {
+                                            I18NEndpointPrxHelper.__pullLatest_completed(this, __result);
+                                        }
+                                    });
+    }
+
+    private Ice.AsyncResult begin_pullLatest(String traceId, 
+                                             PullResourceRequest request, 
+                                             java.util.Map<String, String> __ctx, 
+                                             boolean __explicitCtx, 
+                                             boolean __synchronous, 
+                                             IceInternal.CallbackBase __cb)
+    {
+        __checkAsyncTwowayOnly(__pullLatest_name);
+        IceInternal.OutgoingAsync __result = getOutgoingAsync(__pullLatest_name, __cb);
+        try
+        {
+            __result.prepare(__pullLatest_name, Ice.OperationMode.Normal, __ctx, __explicitCtx, __synchronous);
+            IceInternal.BasicStream __os = __result.startWriteParams(Ice.FormatType.DefaultFormat);
+            __os.writeString(traceId);
+            __os.writeObject(request);
+            __os.writePendingObjects();
+            __result.endWriteParams();
+            __result.invoke();
+        }
+        catch(Ice.Exception __ex)
+        {
+            __result.abort(__ex);
+        }
+        return __result;
+    }
+
+    public ResourceResponse end_pullLatest(Ice.AsyncResult __iresult)
+    {
+        IceInternal.OutgoingAsync __result = IceInternal.OutgoingAsync.check(__iresult, this, __pullLatest_name);
+        try
+        {
+            if(!__result.__wait())
+            {
+                try
+                {
+                    __result.throwUserException();
+                }
+                catch(Ice.UserException __ex)
+                {
+                    throw new Ice.UnknownUserException(__ex.ice_name(), __ex);
+                }
+            }
+            IceInternal.BasicStream __is = __result.startReadParams();
+            ResourceResponseHolder __ret = new ResourceResponseHolder();
+            __is.readObject(__ret);
+            __is.readPendingObjects();
+            __result.endReadParams();
+            return __ret.value;
+        }
+        finally
+        {
+            if(__result != null)
+            {
+                __result.cacheMessageBuffers();
+            }
+        }
+    }
+
+    static public void __pullLatest_completed(Ice.TwowayCallbackArg1<ResourceResponse> __cb, Ice.AsyncResult __result)
+    {
+        I18NEndpointPrx __proxy = (I18NEndpointPrx)__result.getProxy();
+        ResourceResponse __ret = null;
+        try
+        {
+            __ret = __proxy.end_pullLatest(__result);
         }
         catch(Ice.LocalException __ex)
         {

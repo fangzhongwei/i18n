@@ -23,7 +23,7 @@ package RpcI18N;
 /**
  * Provides type-specific helper functions.
  **/
-public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHelperBase implements CheckResourceVersionRequestPrx
+public final class PullResourceRequestPrxHelper extends Ice.ObjectPrxHelperBase implements PullResourceRequestPrx
 {
     /**
      * Contacts the remote server to verify that the object implements this type.
@@ -31,9 +31,9 @@ public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHel
      * @param __obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    public static CheckResourceVersionRequestPrx checkedCast(Ice.ObjectPrx __obj)
+    public static PullResourceRequestPrx checkedCast(Ice.ObjectPrx __obj)
     {
-        return checkedCastImpl(__obj, ice_staticId(), CheckResourceVersionRequestPrx.class, CheckResourceVersionRequestPrxHelper.class);
+        return checkedCastImpl(__obj, ice_staticId(), PullResourceRequestPrx.class, PullResourceRequestPrxHelper.class);
     }
 
     /**
@@ -43,9 +43,9 @@ public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHel
      * @param __ctx The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    public static CheckResourceVersionRequestPrx checkedCast(Ice.ObjectPrx __obj, java.util.Map<String, String> __ctx)
+    public static PullResourceRequestPrx checkedCast(Ice.ObjectPrx __obj, java.util.Map<String, String> __ctx)
     {
-        return checkedCastImpl(__obj, __ctx, ice_staticId(), CheckResourceVersionRequestPrx.class, CheckResourceVersionRequestPrxHelper.class);
+        return checkedCastImpl(__obj, __ctx, ice_staticId(), PullResourceRequestPrx.class, PullResourceRequestPrxHelper.class);
     }
 
     /**
@@ -55,9 +55,9 @@ public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHel
      * @param __facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    public static CheckResourceVersionRequestPrx checkedCast(Ice.ObjectPrx __obj, String __facet)
+    public static PullResourceRequestPrx checkedCast(Ice.ObjectPrx __obj, String __facet)
     {
-        return checkedCastImpl(__obj, __facet, ice_staticId(), CheckResourceVersionRequestPrx.class, CheckResourceVersionRequestPrxHelper.class);
+        return checkedCastImpl(__obj, __facet, ice_staticId(), PullResourceRequestPrx.class, PullResourceRequestPrxHelper.class);
     }
 
     /**
@@ -68,9 +68,9 @@ public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHel
      * @param __ctx The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    public static CheckResourceVersionRequestPrx checkedCast(Ice.ObjectPrx __obj, String __facet, java.util.Map<String, String> __ctx)
+    public static PullResourceRequestPrx checkedCast(Ice.ObjectPrx __obj, String __facet, java.util.Map<String, String> __ctx)
     {
-        return checkedCastImpl(__obj, __facet, __ctx, ice_staticId(), CheckResourceVersionRequestPrx.class, CheckResourceVersionRequestPrxHelper.class);
+        return checkedCastImpl(__obj, __facet, __ctx, ice_staticId(), PullResourceRequestPrx.class, PullResourceRequestPrxHelper.class);
     }
 
     /**
@@ -78,9 +78,9 @@ public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHel
      * @param __obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    public static CheckResourceVersionRequestPrx uncheckedCast(Ice.ObjectPrx __obj)
+    public static PullResourceRequestPrx uncheckedCast(Ice.ObjectPrx __obj)
     {
-        return uncheckedCastImpl(__obj, CheckResourceVersionRequestPrx.class, CheckResourceVersionRequestPrxHelper.class);
+        return uncheckedCastImpl(__obj, PullResourceRequestPrx.class, PullResourceRequestPrxHelper.class);
     }
 
     /**
@@ -89,15 +89,15 @@ public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHel
      * @param __facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    public static CheckResourceVersionRequestPrx uncheckedCast(Ice.ObjectPrx __obj, String __facet)
+    public static PullResourceRequestPrx uncheckedCast(Ice.ObjectPrx __obj, String __facet)
     {
-        return uncheckedCastImpl(__obj, __facet, CheckResourceVersionRequestPrx.class, CheckResourceVersionRequestPrxHelper.class);
+        return uncheckedCastImpl(__obj, __facet, PullResourceRequestPrx.class, PullResourceRequestPrxHelper.class);
     }
 
     public static final String[] __ids =
     {
         "::Ice::Object",
-        "::RpcI18N::CheckResourceVersionRequest"
+        "::RpcI18N::PullResourceRequest"
     };
 
     /**
@@ -109,17 +109,17 @@ public final class CheckResourceVersionRequestPrxHelper extends Ice.ObjectPrxHel
         return __ids[1];
     }
 
-    public static void __write(IceInternal.BasicStream __os, CheckResourceVersionRequestPrx v)
+    public static void __write(IceInternal.BasicStream __os, PullResourceRequestPrx v)
     {
         __os.writeProxy(v);
     }
 
-    public static CheckResourceVersionRequestPrx __read(IceInternal.BasicStream __is)
+    public static PullResourceRequestPrx __read(IceInternal.BasicStream __is)
     {
         Ice.ObjectPrx proxy = __is.readProxy();
         if(proxy != null)
         {
-            CheckResourceVersionRequestPrxHelper result = new CheckResourceVersionRequestPrxHelper();
+            PullResourceRequestPrxHelper result = new PullResourceRequestPrxHelper();
             result.__copyFrom(proxy);
             return result;
         }

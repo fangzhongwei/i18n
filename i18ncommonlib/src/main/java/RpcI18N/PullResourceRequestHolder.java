@@ -20,15 +20,15 @@
 
 package RpcI18N;
 
-public final class CheckResourceVersionRequestHolder extends Ice.ObjectHolderBase<CheckResourceVersionRequest>
+public final class PullResourceRequestHolder extends Ice.ObjectHolderBase<PullResourceRequest>
 {
     public
-    CheckResourceVersionRequestHolder()
+    PullResourceRequestHolder()
     {
     }
 
     public
-    CheckResourceVersionRequestHolder(CheckResourceVersionRequest value)
+    PullResourceRequestHolder(PullResourceRequest value)
     {
         this.value = value;
     }
@@ -36,9 +36,9 @@ public final class CheckResourceVersionRequestHolder extends Ice.ObjectHolderBas
     public void
     patch(Ice.Object v)
     {
-        if(v == null || v instanceof CheckResourceVersionRequest)
+        if(v == null || v instanceof PullResourceRequest)
         {
-            value = (CheckResourceVersionRequest)v;
+            value = (PullResourceRequest)v;
         }
         else
         {
@@ -49,6 +49,6 @@ public final class CheckResourceVersionRequestHolder extends Ice.ObjectHolderBas
     public String
     type()
     {
-        return CheckResourceVersionRequest.ice_staticId();
+        return PullResourceRequest.ice_staticId();
     }
 }
