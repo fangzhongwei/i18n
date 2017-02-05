@@ -1,6 +1,7 @@
 package com.lawsofnature.i18n.repo
 
-import com.lawsofnature.connection.DBComponent
+
+import com.jxjxgo.mysql.connection.DBComponent
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration

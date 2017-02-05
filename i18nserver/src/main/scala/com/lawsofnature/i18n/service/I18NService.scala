@@ -2,7 +2,7 @@ package com.lawsofnature.i18n.service
 
 import javax.inject.Inject
 
-import RpcI18N.{PullResourceRequest, Resource, ResourceResponse}
+import com.jxjxgo.i18n.rpc.domain.{PullResourceRequest, Resource, ResourceResponse}
 import com.lawsofnature.i18n.repo.I18NRepository
 
 /**
@@ -18,19 +18,25 @@ class I18NServiceImpl @Inject()(i18NRepository: I18NRepository) extends I18NServ
 
   implicit def rawSeq2RpcArray(seq: Seq[i18NRepository.TmResourceRow]): Array[Resource] = {
     seq.map {
-      r => new Resource(r.id, r.`type`, r.code, r.lan, r.desc, r.version)
+      r => Resource(r.id, r.`type`, r.code, r.lan, r.desc, r.version)
     }.toArray
   }
 
   override def pullLatest(traceId: String, request: PullResourceRequest): ResourceResponse = {
     val latestVersion: Int = i18NRepository.getLatestVersion(request.lan)
     val tmResourceRows: Seq[i18NRepository.TmResourceRow] = i18NRepository.pullResources(request.lan, request.version)
-    new ResourceResponse("0", latestVersion, tmResourceRows)
+    val seq: Seq[Resource] = tmResourceRows.map {
+      r => Resource(r.id, r.`type`, r.code, r.lan, r.desc, r.version)
+    }
+    ResourceResponse("0", latestVersion, seq)
   }
 
   override def getLatest(traceId: String, lan: String): ResourceResponse = {
     val latestVersion: Int = i18NRepository.getLatestVersion(lan)
     val tmResourceRows: Seq[i18NRepository.TmResourceRow] = i18NRepository.selectAllResources(lan)
-    new ResourceResponse("0", latestVersion, tmResourceRows)
+    val seq: Seq[Resource] = tmResourceRows.map {
+      r => Resource(r.id, r.`type`, r.code, r.lan, r.desc, r.version)
+    }
+    ResourceResponse("0", latestVersion, seq)
   }
 }
