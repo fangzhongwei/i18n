@@ -12,9 +12,9 @@ import com.twitter.scrooge.ThriftService
 import org.slf4j.LoggerFactory
 
 object RpcService extends App {
-  var logger = LoggerFactory.getLogger(this.getClass)
+  private[this] var logger = LoggerFactory.getLogger(this.getClass)
 
-  private val injector = Guice.createInjector(new AbstractModule() {
+  private[this] val injector = Guice.createInjector(new AbstractModule() {
     override def configure() {
       val map: util.HashMap[String, String] = ConfigHelper.configMap
       Names.bindProperties(binder(), map)

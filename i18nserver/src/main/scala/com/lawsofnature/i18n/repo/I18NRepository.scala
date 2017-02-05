@@ -1,8 +1,6 @@
 package com.lawsofnature.i18n.repo
 
-
 import com.jxjxgo.mysql.connection.DBComponent
-
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
@@ -28,9 +26,9 @@ trait I18NRepository extends Tables {
     }, Duration.Inf)
   }
 
-  def getLatestVersion(lan: String): Int = {
+  def getLatestVersion(lan: String): Option[Int] = {
     Await.result(db.run {
-      TmResourceConfig.filter(_.lan === lan).map(_.latestVersion).result.head
+      TmResourceConfig.filter(_.lan === lan).map(_.latestVersion).result.headOption
     }, Duration.Inf)
   }
 }

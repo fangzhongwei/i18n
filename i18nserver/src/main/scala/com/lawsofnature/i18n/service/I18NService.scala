@@ -2,6 +2,7 @@ package com.lawsofnature.i18n.service
 
 import javax.inject.Inject
 
+import com.jxjxgo.common.exception.ErrorCode
 import com.jxjxgo.i18n.rpc.domain.{PullResourceRequest, Resource, ResourceResponse}
 import com.lawsofnature.i18n.repo.I18NRepository
 
@@ -15,28 +16,29 @@ trait I18NService {
 }
 
 class I18NServiceImpl @Inject()(i18NRepository: I18NRepository) extends I18NService {
-
-  implicit def rawSeq2RpcArray(seq: Seq[i18NRepository.TmResourceRow]): Array[Resource] = {
+  implicit def rawSeq2RpcArray(seq: Seq[i18NRepository.TmResourceRow]): Seq[Resource] = {
     seq.map {
       r => Resource(r.id, r.`type`, r.code, r.lan, r.desc, r.version)
-    }.toArray
+    }
   }
 
   override def pullLatest(traceId: String, request: PullResourceRequest): ResourceResponse = {
-    val latestVersion: Int = i18NRepository.getLatestVersion(request.lan)
-    val tmResourceRows: Seq[i18NRepository.TmResourceRow] = i18NRepository.pullResources(request.lan, request.version)
-    val seq: Seq[Resource] = tmResourceRows.map {
-      r => Resource(r.id, r.`type`, r.code, r.lan, r.desc, r.version)
+    val maybeLatestVersion: Option[Int] = i18NRepository.getLatestVersion(request.lan)
+    maybeLatestVersion match {
+      case Some(latestVersion) =>
+        val tmResourceRows: Seq[i18NRepository.TmResourceRow] = i18NRepository.pullResources(request.lan, request.version)
+        ResourceResponse("0", latestVersion, tmResourceRows)
+      case None => ResourceResponse(code = ErrorCode.EC_I18N_LAN_NOT_EXIST.getCode)
     }
-    ResourceResponse("0", latestVersion, seq)
   }
 
   override def getLatest(traceId: String, lan: String): ResourceResponse = {
-    val latestVersion: Int = i18NRepository.getLatestVersion(lan)
-    val tmResourceRows: Seq[i18NRepository.TmResourceRow] = i18NRepository.selectAllResources(lan)
-    val seq: Seq[Resource] = tmResourceRows.map {
-      r => Resource(r.id, r.`type`, r.code, r.lan, r.desc, r.version)
+    val maybeLatestVersion: Option[Int] = i18NRepository.getLatestVersion(lan)
+    maybeLatestVersion match {
+      case Some(latestVersion) =>
+        val tmResourceRows: Seq[i18NRepository.TmResourceRow] = i18NRepository.selectAllResources(lan)
+        ResourceResponse("0", latestVersion, tmResourceRows)
+      case None => ResourceResponse(code = ErrorCode.EC_I18N_LAN_NOT_EXIST.getCode)
     }
-    ResourceResponse("0", latestVersion, seq)
   }
 }

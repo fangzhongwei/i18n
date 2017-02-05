@@ -12,3 +12,4 @@ project/boot/
 .idea
 i18n.ipr
 i18n.iws
+*.log

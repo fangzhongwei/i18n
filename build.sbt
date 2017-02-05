@@ -21,6 +21,7 @@ lazy val i18nserver = (project in file("i18nserver")).settings(commonSettings: _
   libraryDependencies ++= Seq(
     "com.jxjxgo.i18n" % "i18ncommonlib_2.11" % "1.0",
     "com.jxjxgo.common" % "common-utils_2.11" % "1.0",
+    "com.jxjxgo.common" % "common-error_2.11" % "1.0",
     "com.jxjxgo.common" % "common-mysql_2.11" % "1.0"
   )
 )
