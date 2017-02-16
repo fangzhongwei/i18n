@@ -1,4 +1,4 @@
-package com.lawsofnature.i18n.rpc
+package com.jxjxgo.i18n.rpc
 
 import java.util
 
@@ -6,8 +6,8 @@ import com.google.inject.name.Names
 import com.google.inject.{AbstractModule, Guice}
 import com.jxjxgo.common.helper.ConfigHelper
 import com.jxjxgo.scrooge.thrift.template.{ScroogeThriftServerTemplate, ScroogeThriftServerTemplateImpl}
-import com.lawsofnature.i18n.repo.{I18NRepository, I18NRepositoryImpl}
-import com.lawsofnature.i18n.service.{I18NEndpointImpl, I18NService, I18NServiceImpl}
+import com.jxjxgo.i18n.repo.{I18NRepository, I18NRepositoryImpl}
+import com.jxjxgo.i18n.service.{I18NEndpointImpl, I18NService, I18NServiceImpl}
 import com.twitter.scrooge.ThriftService
 import org.slf4j.LoggerFactory
 

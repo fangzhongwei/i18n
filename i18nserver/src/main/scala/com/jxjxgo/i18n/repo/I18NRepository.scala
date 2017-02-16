@@ -1,4 +1,4 @@
-package com.lawsofnature.i18n.repo
+package com.jxjxgo.i18n.repo
 
 import com.jxjxgo.mysql.connection.DBComponent
 import scala.concurrent.Await

@@ -1,4 +1,4 @@
-package com.lawsofnature.i18n.service
+package com.jxjxgo.i18n.service
 
 import javax.inject.Inject
 

@@ -1,10 +1,10 @@
-package com.lawsofnature.i18n.service
+package com.jxjxgo.i18n.service
 
 import javax.inject.Inject
 
 import com.jxjxgo.common.exception.ErrorCode
 import com.jxjxgo.i18n.rpc.domain.{PullResourceRequest, Resource, ResourceResponse}
-import com.lawsofnature.i18n.repo.I18NRepository
+import com.jxjxgo.i18n.repo.I18NRepository
 
 /**
   * Created by fangzhongwei on 2017/1/13.
