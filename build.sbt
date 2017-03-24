@@ -19,7 +19,7 @@ lazy val i18nserver = (project in file("i18nserver")).settings(commonSettings: _
   name := """i18nserver""",
   mainClass in (Compile, run) := Some("com.jxjxgo.i18n.rpc.RpcService"),
   libraryDependencies ++= Seq(
-//    "com.jxjxgo.i18n" % "i18ncommonlib_2.12" % "1.1",
+    "com.jxjxgo.i18n" % "i18ncommonlib_2.12" % "1.1",
     "com.jxjxgo.common" % "common-utils_2.12" % "1.1",
     "com.jxjxgo.common" % "common-error_2.12" % "1.1",
     "com.jxjxgo.common" % "common-db_2.12" % "1.1"
